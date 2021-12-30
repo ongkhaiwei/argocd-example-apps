@@ -26,6 +26,22 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
+route:
+  customHost: guestbook.YOUR_DOMAIN
+  targetPort: 80
+  routeTls:
+    certificate: |
+      -----BEGIN CERTIFICATE-----
+      MIIFKTCCBBGgAwIBAgISBM+mhwFaz5mWp0b6dxbAgu7sMA0GCSqGSIb3DQEBCwUA
+      ...
+      -----END CERTIFICATE-----
+    insecureEdgeTerminationPolicy: Redirect
+    key: |-
+      -----BEGIN PRIVATE KEY-----
+      MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDbdhnliq3cc/Y6
+      ...
+      -----END PRIVATE KEY-----
+
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
